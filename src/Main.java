@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
 		ArrayList<Conta> contas = new ArrayList<>();
 
 		
-		
+
 		int opcao = 0;
 
 		do {
@@ -129,6 +128,7 @@ public class Main {
 			}
 		} while (opcao != 4);
 		System.out.println("Saindo...");
+		input.close();
 
 	}
 
