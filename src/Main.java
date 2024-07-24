@@ -59,17 +59,18 @@ public class Main {
 						System.out.println("Digite sua conta: ");
 						int conta = input.nextInt();
 						System.out.println("Selecione um Cliente");
-						for (int i = 0; i < clientes.size(); i++) {
-							System.out.println((i) + " - " + clientes.get(i).getNome());
+
+						if (clientes.size() > 0) {
+							for (int i = 0; i < clientes.size(); i++) {
+								System.out.println((i) + " - " + clientes.get(i).getNome());
+							}
+
+							int cliente = input.nextInt();
+							// criar conta
+							ContaCorrente contaCorrente = new ContaCorrente(clientes.get(cliente), agencia, conta);
+							contas.add(contaCorrente);
+							System.out.println("Criado Conta Corrente Cadastrada!");
 						}
-
-						int cliente = input.nextInt();
-
-						// criar conta
-						ContaCorrente contaCorrente = new ContaCorrente(clientes.get(cliente), agencia, conta);
-						;
-						contas.add(contaCorrente);
-						System.out.println("Criado Conta Corrente Cadastrada!");
 
 					}
 
@@ -79,27 +80,31 @@ public class Main {
 						System.out.println("Digite sua conta: ");
 						int conta = input.nextInt();
 						System.out.println("Selecione um Cliente");
-						for (int i = 0; i < clientes.size(); i++) {
-							System.out.println((i) + " - " + clientes.get(i).getNome());
+						if (clientes.size() > 0) {
+							for (int i = 0; i < clientes.size(); i++) {
+								System.out.println((i) + " - " + clientes.get(i).getNome());
+							}
+							int cliente = input.nextInt();
+							// criar conta
+							ContaPoupanca contaPoupanca = new ContaPoupanca(clientes.get(cliente), agencia, conta);
+							contas.add(contaPoupanca);
 						}
 
-						int cliente = input.nextInt();
+						else {
+							System.out.println("Nenhum cliente cadastrado");
+						}
 
-						// criar conta
-						ContaPoupanca contaPoupanca = new ContaPoupanca(clientes.get(cliente), agencia, conta);
-						contas.add(contaPoupanca);
 						System.out.println("Criado Conta Poupança Cadastrada!");
 					}
 				case 3:
-					if(contas.size() > 0) {
+					if (contas.size() > 0) {
 						System.out.println("Selecione uma conta");
 						for (int i = 0; i < contas.size(); i++) {
 							System.out.println((i) + " - " + contas.get(i).getNumero());
 						}
 						int conta = input.nextInt();
 						contas.get(conta).imprimirExtrato();
-					}
-					else{
+					} else {
 						System.out.println("Nenhuma conta cadastrada");
 					}
 					break;
