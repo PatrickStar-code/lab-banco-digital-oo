@@ -9,6 +9,8 @@ public class Main {
 		ArrayList<Cliente> clientes = new ArrayList<>();
 		ArrayList<Conta> contas = new ArrayList<>();
 
+		
+		
 		int opcao = 0;
 
 		do {
@@ -72,6 +74,12 @@ public class Main {
 							System.out.println("Criado Conta Corrente Cadastrada!");
 						}
 
+						else {
+							System.out.println("Nenhum cliente cadastrado");
+						}
+
+						break;
+
 					}
 
 					else if (tipoConta == 2) {
@@ -88,13 +96,15 @@ public class Main {
 							// criar conta
 							ContaPoupanca contaPoupanca = new ContaPoupanca(clientes.get(cliente), agencia, conta);
 							contas.add(contaPoupanca);
+							System.out.println("Criado Conta Poupança Cadastrada!");
+
 						}
 
 						else {
 							System.out.println("Nenhum cliente cadastrado");
 						}
+						break;
 
-						System.out.println("Criado Conta Poupança Cadastrada!");
 					}
 				case 3:
 					if (contas.size() > 0) {
@@ -107,6 +117,13 @@ public class Main {
 					} else {
 						System.out.println("Nenhuma conta cadastrada");
 					}
+					break;
+
+				case 4:
+					System.out.println("Saindo...");
+					break;
+				default:
+					System.out.println("Opção inválida, tente novamente");
 					break;
 
 			}
